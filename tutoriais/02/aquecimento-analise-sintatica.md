@@ -139,7 +139,7 @@ result = parser.parse(debug=True) #Execução da análise sintática.
 
 **Exercício 1 [calcparser.py]**: Execute o código anterior. A execução foi bem sucedida? 
 
-**Exercício 2 [calcparser.py]**: Mapeie as demais regras da gramática citada. As regras que devem ser mapeadas estão em negrito. 
+**Exercício 2 [calcparser.py]**: Mapeie as demais regras da gramática citada. As regras que devem ser mapeadas são a de multiplicação, divisão e a relativa a num 
 
 ```
 exp → exp + exp1 | exp - exp1 | exp1 
