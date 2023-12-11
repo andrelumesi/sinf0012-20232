@@ -47,8 +47,8 @@ N|Nome Completo   | Linguagem escolhida
 ¨|Igor Andrade Nepomuceno |
 ¨|Jonatha Gabriel Nascimento |
 ¨|Jhonatas Nascimento Oliveira |
-**7|Edmarques Andrade Costa | JS**
-¨|Marcos Venicio da Palma Dias |
+7|Edmarques Andrade Costa | JS
+|Marcos Venicio da Palma Dias |
 ¨|Luiz Souza Neri |
 
 
