@@ -5,7 +5,7 @@ Repositório da disciplina SINF0012, ministrada pelo Prof. Dr. André Luis Menes
 
 Links úteis:
 
- - [imagem-linux - Linux-mint 21.2, com git, gh, docker e ply - Formato 7zip](./imagelinux)
+ - [imagem-linux - Linux-mint 21.2, com git, gh, docker e ply - Formato 7zip](https://drive.google.com/file/d/1fMQwl5DlUCSzIikqoLmL1btlwz3e1Zzn/view?usp=sharing)
  
 
 Grupos do Projeto e Linguagens:
