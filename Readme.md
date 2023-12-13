@@ -1,6 +1,6 @@
 # 2023.2 - SINF0012 - Linguagens formais e Tradutores
 
-Repositório da disciplina SINF0012, ministrada pelo Prof. Dr. André Luis Meneses Silva do Departamenteo de Sistemas de Computação da Universidade Federal de Sergipe (DSI/UFS).           
+Repositório da disciplina SINF0012, ministrada pelo Prof. Dr. André Luis Meneses Silva do Departamento de Sistemas de Informação da Universidade Federal de Sergipe (DSI/UFS).           
 
 
 Links úteis:
