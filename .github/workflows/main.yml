@@ -1,0 +1,18 @@
+- name: Markdown action: create indexes
+# You may pin to the exact commit or the version.
+# uses: DaanV2/Markdown-Action-Create-Indexes@5bad54da951589eae8f940d253707e0093c401b8
+uses: DaanV2/Markdown-Action-Create-Indexes@v5.1.0
+  with:
+    # The folder path to start at
+    folder: 2025.2/avaliacoes/unidade01 # optional, default is ${{ github.workspace }}
+    # The name of the file, default to 'index.md'
+    filename: Readme.md # optional, default is index.md
+    # The content of to add to the index file, default to '.content.md'
+    content: # optional, default is .content.md
+    # The files to additionaly include in the index file, follows glob pattern on the filenames, supports multiple patterns via multi-line string
+    include: # optional, default is 
+    # The files to exclude from the index file, follows glob pattern on the filenames, supports multiple patterns via multi-line string
+    exclude: # optional, default is 
+    # Whether to include the file extension in the index file links
+    includeExt: # optional, default is false
+          
