@@ -1,20 +1,28 @@
-name: Markdown action: create indexes
+name: Gerar Readme com índices Markdown
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - "2025.2/avaliacoes/unidade01/**"
   workflow_dispatch:
 
 jobs:
-  create-index:
+  generate-readme:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Criar índices Markdown
+      - name: Gerar Readme.md com links dos arquivos
         uses: DaanV2/Markdown-Action-Create-Indexes@v5.1.0
         with:
           folder: 2025.2/avaliacoes/unidade01
           filename: Readme.md
+          includeExt: true
+
+      - name: Commit do Readme.md gerado
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Atualiza Readme.md com índice de arquivos"
+          add: "2025.2/avaliacoes/unidade01/Readme.md"
