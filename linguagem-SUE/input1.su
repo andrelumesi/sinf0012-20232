@@ -1,0 +1,29 @@
+z = 35 + 19;
+k = z + 20;
+int sumparabola(int a, int b, int c){
+    return a + b + c;
+}
+
+
+int sumparabolac(int a){
+    return a;
+}
+ 
+int some (int a, int b){
+    a = 88 + 44;
+    b = 70;
+    sumparabola(1, 2, 3);        
+    while (true){
+        c = 38;
+        sumparabola(a, b, 7);
+        while (true){
+            sumparabola(5, b, a);
+        }
+    }
+    sumparabolac(2);
+    return b;
+}
+
+f = 3 + 5;
+some(z, k);
+ 

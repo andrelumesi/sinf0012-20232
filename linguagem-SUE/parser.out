@@ -1,0 +1,1138 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> funcdecl
+Rule 2     program -> funcdecl program
+Rule 3     program -> globalvardecl program
+Rule 4     program -> globalvardecl
+Rule 5     program -> callglobal
+Rule 6     program -> callglobal program
+Rule 7     globalvardecl -> ID IGUAL expless PV
+Rule 8     callglobal -> call PV
+Rule 9     funcdecl -> signature body
+Rule 10    signature -> ID ID LPAREN sigparams RPAREN
+Rule 11    signature -> ID ID LPAREN RPAREN
+Rule 12    sigparams -> ID ID
+Rule 13    sigparams -> ID ID COMMA sigparams
+Rule 14    body -> LCHAV stms RCHAV
+Rule 15    body -> LCHAV RCHAV
+Rule 16    stms -> stm
+Rule 17    stms -> stm stms
+Rule 18    stm -> exp PV
+Rule 19    stm -> WHILE LPAREN exp RPAREN body
+Rule 20    stm -> RETURN exp PV
+Rule 21    exp -> exp IGUAL expless
+Rule 22    exp -> expless
+Rule 23    expless -> expless LESS exp1
+Rule 24    expless -> exp1
+Rule 25    exp1 -> exp1 SOMA exp2
+Rule 26    exp1 -> exp2
+Rule 27    exp2 -> exp2 VEZES exp3
+Rule 28    exp2 -> exp3
+Rule 29    exp3 -> exp4 POT exp3
+Rule 30    exp3 -> exp4
+Rule 31    exp4 -> call
+Rule 32    exp4 -> NUMBER
+Rule 33    exp4 -> ID
+Rule 34    exp4 -> TRUE
+Rule 35    exp4 -> FALSE
+Rule 36    call -> ID LPAREN params RPAREN
+Rule 37    call -> ID LPAREN RPAREN
+Rule 38    params -> exp COMMA params
+Rule 39    params -> exp
+
+Terminals, with rules where they appear
+
+COMMA                : 13 38
+FALSE                : 35
+ID                   : 7 10 10 11 11 12 12 13 13 33 36 37
+IGUAL                : 7 21
+LCHAV                : 14 15
+LESS                 : 23
+LPAREN               : 10 11 19 36 37
+NUMBER               : 32
+POT                  : 29
+PV                   : 7 8 18 20
+RCHAV                : 14 15
+RETURN               : 20
+RPAREN               : 10 11 19 36 37
+SOMA                 : 25
+TRUE                 : 34
+VEZES                : 27
+WHILE                : 19
+error                : 
+
+Nonterminals, with rules where they appear
+
+body                 : 9 19
+call                 : 8 31
+callglobal           : 5 6
+exp                  : 18 19 20 21 38 39
+exp1                 : 23 24 25
+exp2                 : 25 26 27
+exp3                 : 27 28 29
+exp4                 : 29 30
+expless              : 7 21 22 23
+funcdecl             : 1 2
+globalvardecl        : 3 4
+params               : 36 38
+program              : 2 3 6 0
+signature            : 9
+sigparams            : 10 13
+stm                  : 16 17
+stms                 : 14 17
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . funcdecl
+    (2) program -> . funcdecl program
+    (3) program -> . globalvardecl program
+    (4) program -> . globalvardecl
+    (5) program -> . callglobal
+    (6) program -> . callglobal program
+    (9) funcdecl -> . signature body
+    (7) globalvardecl -> . ID IGUAL expless PV
+    (8) callglobal -> . call PV
+    (10) signature -> . ID ID LPAREN sigparams RPAREN
+    (11) signature -> . ID ID LPAREN RPAREN
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    ID              shift and go to state 6
+
+    program                        shift and go to state 1
+    funcdecl                       shift and go to state 2
+    globalvardecl                  shift and go to state 3
+    callglobal                     shift and go to state 4
+    signature                      shift and go to state 5
+    call                           shift and go to state 7
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> funcdecl .
+    (2) program -> funcdecl . program
+    (1) program -> . funcdecl
+    (2) program -> . funcdecl program
+    (3) program -> . globalvardecl program
+    (4) program -> . globalvardecl
+    (5) program -> . callglobal
+    (6) program -> . callglobal program
+    (9) funcdecl -> . signature body
+    (7) globalvardecl -> . ID IGUAL expless PV
+    (8) callglobal -> . call PV
+    (10) signature -> . ID ID LPAREN sigparams RPAREN
+    (11) signature -> . ID ID LPAREN RPAREN
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    $end            reduce using rule 1 (program -> funcdecl .)
+    ID              shift and go to state 6
+
+    funcdecl                       shift and go to state 2
+    program                        shift and go to state 8
+    globalvardecl                  shift and go to state 3
+    callglobal                     shift and go to state 4
+    signature                      shift and go to state 5
+    call                           shift and go to state 7
+
+state 3
+
+    (3) program -> globalvardecl . program
+    (4) program -> globalvardecl .
+    (1) program -> . funcdecl
+    (2) program -> . funcdecl program
+    (3) program -> . globalvardecl program
+    (4) program -> . globalvardecl
+    (5) program -> . callglobal
+    (6) program -> . callglobal program
+    (9) funcdecl -> . signature body
+    (7) globalvardecl -> . ID IGUAL expless PV
+    (8) callglobal -> . call PV
+    (10) signature -> . ID ID LPAREN sigparams RPAREN
+    (11) signature -> . ID ID LPAREN RPAREN
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    $end            reduce using rule 4 (program -> globalvardecl .)
+    ID              shift and go to state 6
+
+    globalvardecl                  shift and go to state 3
+    program                        shift and go to state 9
+    funcdecl                       shift and go to state 2
+    callglobal                     shift and go to state 4
+    signature                      shift and go to state 5
+    call                           shift and go to state 7
+
+state 4
+
+    (5) program -> callglobal .
+    (6) program -> callglobal . program
+    (1) program -> . funcdecl
+    (2) program -> . funcdecl program
+    (3) program -> . globalvardecl program
+    (4) program -> . globalvardecl
+    (5) program -> . callglobal
+    (6) program -> . callglobal program
+    (9) funcdecl -> . signature body
+    (7) globalvardecl -> . ID IGUAL expless PV
+    (8) callglobal -> . call PV
+    (10) signature -> . ID ID LPAREN sigparams RPAREN
+    (11) signature -> . ID ID LPAREN RPAREN
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    $end            reduce using rule 5 (program -> callglobal .)
+    ID              shift and go to state 6
+
+    callglobal                     shift and go to state 4
+    program                        shift and go to state 10
+    funcdecl                       shift and go to state 2
+    globalvardecl                  shift and go to state 3
+    signature                      shift and go to state 5
+    call                           shift and go to state 7
+
+state 5
+
+    (9) funcdecl -> signature . body
+    (14) body -> . LCHAV stms RCHAV
+    (15) body -> . LCHAV RCHAV
+
+    LCHAV           shift and go to state 12
+
+    body                           shift and go to state 11
+
+state 6
+
+    (7) globalvardecl -> ID . IGUAL expless PV
+    (10) signature -> ID . ID LPAREN sigparams RPAREN
+    (11) signature -> ID . ID LPAREN RPAREN
+    (36) call -> ID . LPAREN params RPAREN
+    (37) call -> ID . LPAREN RPAREN
+
+    IGUAL           shift and go to state 14
+    ID              shift and go to state 13
+    LPAREN          shift and go to state 15
+
+
+state 7
+
+    (8) callglobal -> call . PV
+
+    PV              shift and go to state 16
+
+
+state 8
+
+    (2) program -> funcdecl program .
+
+    $end            reduce using rule 2 (program -> funcdecl program .)
+
+
+state 9
+
+    (3) program -> globalvardecl program .
+
+    $end            reduce using rule 3 (program -> globalvardecl program .)
+
+
+state 10
+
+    (6) program -> callglobal program .
+
+    $end            reduce using rule 6 (program -> callglobal program .)
+
+
+state 11
+
+    (9) funcdecl -> signature body .
+
+    ID              reduce using rule 9 (funcdecl -> signature body .)
+    $end            reduce using rule 9 (funcdecl -> signature body .)
+
+
+state 12
+
+    (14) body -> LCHAV . stms RCHAV
+    (15) body -> LCHAV . RCHAV
+    (16) stms -> . stm
+    (17) stms -> . stm stms
+    (18) stm -> . exp PV
+    (19) stm -> . WHILE LPAREN exp RPAREN body
+    (20) stm -> . RETURN exp PV
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    RCHAV           shift and go to state 18
+    WHILE           shift and go to state 21
+    RETURN          shift and go to state 22
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    stms                           shift and go to state 17
+    stm                            shift and go to state 19
+    exp                            shift and go to state 20
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 13
+
+    (10) signature -> ID ID . LPAREN sigparams RPAREN
+    (11) signature -> ID ID . LPAREN RPAREN
+
+    LPAREN          shift and go to state 33
+
+
+state 14
+
+    (7) globalvardecl -> ID IGUAL . expless PV
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    expless                        shift and go to state 34
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 15
+
+    (36) call -> ID LPAREN . params RPAREN
+    (37) call -> ID LPAREN . RPAREN
+    (38) params -> . exp COMMA params
+    (39) params -> . exp
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    RPAREN          shift and go to state 36
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    params                         shift and go to state 35
+    exp                            shift and go to state 37
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 16
+
+    (8) callglobal -> call PV .
+
+    ID              reduce using rule 8 (callglobal -> call PV .)
+    $end            reduce using rule 8 (callglobal -> call PV .)
+
+
+state 17
+
+    (14) body -> LCHAV stms . RCHAV
+
+    RCHAV           shift and go to state 38
+
+
+state 18
+
+    (15) body -> LCHAV RCHAV .
+
+    ID              reduce using rule 15 (body -> LCHAV RCHAV .)
+    $end            reduce using rule 15 (body -> LCHAV RCHAV .)
+    WHILE           reduce using rule 15 (body -> LCHAV RCHAV .)
+    RETURN          reduce using rule 15 (body -> LCHAV RCHAV .)
+    NUMBER          reduce using rule 15 (body -> LCHAV RCHAV .)
+    TRUE            reduce using rule 15 (body -> LCHAV RCHAV .)
+    FALSE           reduce using rule 15 (body -> LCHAV RCHAV .)
+    RCHAV           reduce using rule 15 (body -> LCHAV RCHAV .)
+
+
+state 19
+
+    (16) stms -> stm .
+    (17) stms -> stm . stms
+    (16) stms -> . stm
+    (17) stms -> . stm stms
+    (18) stm -> . exp PV
+    (19) stm -> . WHILE LPAREN exp RPAREN body
+    (20) stm -> . RETURN exp PV
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    RCHAV           reduce using rule 16 (stms -> stm .)
+    WHILE           shift and go to state 21
+    RETURN          shift and go to state 22
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    stm                            shift and go to state 19
+    stms                           shift and go to state 39
+    exp                            shift and go to state 20
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 20
+
+    (18) stm -> exp . PV
+    (21) exp -> exp . IGUAL expless
+
+    PV              shift and go to state 40
+    IGUAL           shift and go to state 41
+
+
+state 21
+
+    (19) stm -> WHILE . LPAREN exp RPAREN body
+
+    LPAREN          shift and go to state 42
+
+
+state 22
+
+    (20) stm -> RETURN . exp PV
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp                            shift and go to state 43
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 23
+
+    (22) exp -> expless .
+    (23) expless -> expless . LESS exp1
+
+    PV              reduce using rule 22 (exp -> expless .)
+    IGUAL           reduce using rule 22 (exp -> expless .)
+    COMMA           reduce using rule 22 (exp -> expless .)
+    RPAREN          reduce using rule 22 (exp -> expless .)
+    LESS            shift and go to state 44
+
+
+state 24
+
+    (24) expless -> exp1 .
+    (25) exp1 -> exp1 . SOMA exp2
+
+    LESS            reduce using rule 24 (expless -> exp1 .)
+    PV              reduce using rule 24 (expless -> exp1 .)
+    IGUAL           reduce using rule 24 (expless -> exp1 .)
+    COMMA           reduce using rule 24 (expless -> exp1 .)
+    RPAREN          reduce using rule 24 (expless -> exp1 .)
+    SOMA            shift and go to state 45
+
+
+state 25
+
+    (26) exp1 -> exp2 .
+    (27) exp2 -> exp2 . VEZES exp3
+
+    SOMA            reduce using rule 26 (exp1 -> exp2 .)
+    LESS            reduce using rule 26 (exp1 -> exp2 .)
+    PV              reduce using rule 26 (exp1 -> exp2 .)
+    IGUAL           reduce using rule 26 (exp1 -> exp2 .)
+    COMMA           reduce using rule 26 (exp1 -> exp2 .)
+    RPAREN          reduce using rule 26 (exp1 -> exp2 .)
+    VEZES           shift and go to state 46
+
+
+state 26
+
+    (28) exp2 -> exp3 .
+
+    VEZES           reduce using rule 28 (exp2 -> exp3 .)
+    SOMA            reduce using rule 28 (exp2 -> exp3 .)
+    LESS            reduce using rule 28 (exp2 -> exp3 .)
+    PV              reduce using rule 28 (exp2 -> exp3 .)
+    IGUAL           reduce using rule 28 (exp2 -> exp3 .)
+    COMMA           reduce using rule 28 (exp2 -> exp3 .)
+    RPAREN          reduce using rule 28 (exp2 -> exp3 .)
+
+
+state 27
+
+    (29) exp3 -> exp4 . POT exp3
+    (30) exp3 -> exp4 .
+
+    POT             shift and go to state 47
+    VEZES           reduce using rule 30 (exp3 -> exp4 .)
+    SOMA            reduce using rule 30 (exp3 -> exp4 .)
+    LESS            reduce using rule 30 (exp3 -> exp4 .)
+    PV              reduce using rule 30 (exp3 -> exp4 .)
+    IGUAL           reduce using rule 30 (exp3 -> exp4 .)
+    COMMA           reduce using rule 30 (exp3 -> exp4 .)
+    RPAREN          reduce using rule 30 (exp3 -> exp4 .)
+
+
+state 28
+
+    (31) exp4 -> call .
+
+    POT             reduce using rule 31 (exp4 -> call .)
+    VEZES           reduce using rule 31 (exp4 -> call .)
+    SOMA            reduce using rule 31 (exp4 -> call .)
+    LESS            reduce using rule 31 (exp4 -> call .)
+    PV              reduce using rule 31 (exp4 -> call .)
+    IGUAL           reduce using rule 31 (exp4 -> call .)
+    COMMA           reduce using rule 31 (exp4 -> call .)
+    RPAREN          reduce using rule 31 (exp4 -> call .)
+
+
+state 29
+
+    (32) exp4 -> NUMBER .
+
+    POT             reduce using rule 32 (exp4 -> NUMBER .)
+    VEZES           reduce using rule 32 (exp4 -> NUMBER .)
+    SOMA            reduce using rule 32 (exp4 -> NUMBER .)
+    LESS            reduce using rule 32 (exp4 -> NUMBER .)
+    PV              reduce using rule 32 (exp4 -> NUMBER .)
+    IGUAL           reduce using rule 32 (exp4 -> NUMBER .)
+    COMMA           reduce using rule 32 (exp4 -> NUMBER .)
+    RPAREN          reduce using rule 32 (exp4 -> NUMBER .)
+
+
+state 30
+
+    (33) exp4 -> ID .
+    (36) call -> ID . LPAREN params RPAREN
+    (37) call -> ID . LPAREN RPAREN
+
+    POT             reduce using rule 33 (exp4 -> ID .)
+    VEZES           reduce using rule 33 (exp4 -> ID .)
+    SOMA            reduce using rule 33 (exp4 -> ID .)
+    LESS            reduce using rule 33 (exp4 -> ID .)
+    PV              reduce using rule 33 (exp4 -> ID .)
+    IGUAL           reduce using rule 33 (exp4 -> ID .)
+    COMMA           reduce using rule 33 (exp4 -> ID .)
+    RPAREN          reduce using rule 33 (exp4 -> ID .)
+    LPAREN          shift and go to state 15
+
+
+state 31
+
+    (34) exp4 -> TRUE .
+
+    POT             reduce using rule 34 (exp4 -> TRUE .)
+    VEZES           reduce using rule 34 (exp4 -> TRUE .)
+    SOMA            reduce using rule 34 (exp4 -> TRUE .)
+    LESS            reduce using rule 34 (exp4 -> TRUE .)
+    PV              reduce using rule 34 (exp4 -> TRUE .)
+    IGUAL           reduce using rule 34 (exp4 -> TRUE .)
+    COMMA           reduce using rule 34 (exp4 -> TRUE .)
+    RPAREN          reduce using rule 34 (exp4 -> TRUE .)
+
+
+state 32
+
+    (35) exp4 -> FALSE .
+
+    POT             reduce using rule 35 (exp4 -> FALSE .)
+    VEZES           reduce using rule 35 (exp4 -> FALSE .)
+    SOMA            reduce using rule 35 (exp4 -> FALSE .)
+    LESS            reduce using rule 35 (exp4 -> FALSE .)
+    PV              reduce using rule 35 (exp4 -> FALSE .)
+    IGUAL           reduce using rule 35 (exp4 -> FALSE .)
+    COMMA           reduce using rule 35 (exp4 -> FALSE .)
+    RPAREN          reduce using rule 35 (exp4 -> FALSE .)
+
+
+state 33
+
+    (10) signature -> ID ID LPAREN . sigparams RPAREN
+    (11) signature -> ID ID LPAREN . RPAREN
+    (12) sigparams -> . ID ID
+    (13) sigparams -> . ID ID COMMA sigparams
+
+    RPAREN          shift and go to state 50
+    ID              shift and go to state 48
+
+    sigparams                      shift and go to state 49
+
+state 34
+
+    (7) globalvardecl -> ID IGUAL expless . PV
+    (23) expless -> expless . LESS exp1
+
+    PV              shift and go to state 51
+    LESS            shift and go to state 44
+
+
+state 35
+
+    (36) call -> ID LPAREN params . RPAREN
+
+    RPAREN          shift and go to state 52
+
+
+state 36
+
+    (37) call -> ID LPAREN RPAREN .
+
+    PV              reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    POT             reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    VEZES           reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    SOMA            reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    LESS            reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    IGUAL           reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    COMMA           reduce using rule 37 (call -> ID LPAREN RPAREN .)
+    RPAREN          reduce using rule 37 (call -> ID LPAREN RPAREN .)
+
+
+state 37
+
+    (38) params -> exp . COMMA params
+    (39) params -> exp .
+    (21) exp -> exp . IGUAL expless
+
+    COMMA           shift and go to state 53
+    RPAREN          reduce using rule 39 (params -> exp .)
+    IGUAL           shift and go to state 41
+
+
+state 38
+
+    (14) body -> LCHAV stms RCHAV .
+
+    ID              reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    $end            reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    WHILE           reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    RETURN          reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    NUMBER          reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    TRUE            reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    FALSE           reduce using rule 14 (body -> LCHAV stms RCHAV .)
+    RCHAV           reduce using rule 14 (body -> LCHAV stms RCHAV .)
+
+
+state 39
+
+    (17) stms -> stm stms .
+
+    RCHAV           reduce using rule 17 (stms -> stm stms .)
+
+
+state 40
+
+    (18) stm -> exp PV .
+
+    WHILE           reduce using rule 18 (stm -> exp PV .)
+    RETURN          reduce using rule 18 (stm -> exp PV .)
+    NUMBER          reduce using rule 18 (stm -> exp PV .)
+    ID              reduce using rule 18 (stm -> exp PV .)
+    TRUE            reduce using rule 18 (stm -> exp PV .)
+    FALSE           reduce using rule 18 (stm -> exp PV .)
+    RCHAV           reduce using rule 18 (stm -> exp PV .)
+
+
+state 41
+
+    (21) exp -> exp IGUAL . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    expless                        shift and go to state 54
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 42
+
+    (19) stm -> WHILE LPAREN . exp RPAREN body
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp                            shift and go to state 55
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 43
+
+    (20) stm -> RETURN exp . PV
+    (21) exp -> exp . IGUAL expless
+
+    PV              shift and go to state 56
+    IGUAL           shift and go to state 41
+
+
+state 44
+
+    (23) expless -> expless LESS . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp1                           shift and go to state 57
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 45
+
+    (25) exp1 -> exp1 SOMA . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp2                           shift and go to state 58
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 46
+
+    (27) exp2 -> exp2 VEZES . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp3                           shift and go to state 59
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 47
+
+    (29) exp3 -> exp4 POT . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp4                           shift and go to state 27
+    exp3                           shift and go to state 60
+    call                           shift and go to state 28
+
+state 48
+
+    (12) sigparams -> ID . ID
+    (13) sigparams -> ID . ID COMMA sigparams
+
+    ID              shift and go to state 61
+
+
+state 49
+
+    (10) signature -> ID ID LPAREN sigparams . RPAREN
+
+    RPAREN          shift and go to state 62
+
+
+state 50
+
+    (11) signature -> ID ID LPAREN RPAREN .
+
+    LCHAV           reduce using rule 11 (signature -> ID ID LPAREN RPAREN .)
+
+
+state 51
+
+    (7) globalvardecl -> ID IGUAL expless PV .
+
+    ID              reduce using rule 7 (globalvardecl -> ID IGUAL expless PV .)
+    $end            reduce using rule 7 (globalvardecl -> ID IGUAL expless PV .)
+
+
+state 52
+
+    (36) call -> ID LPAREN params RPAREN .
+
+    PV              reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    POT             reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    VEZES           reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    SOMA            reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    LESS            reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    IGUAL           reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    COMMA           reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+    RPAREN          reduce using rule 36 (call -> ID LPAREN params RPAREN .)
+
+
+state 53
+
+    (38) params -> exp COMMA . params
+    (38) params -> . exp COMMA params
+    (39) params -> . exp
+    (21) exp -> . exp IGUAL expless
+    (22) exp -> . expless
+    (23) expless -> . expless LESS exp1
+    (24) expless -> . exp1
+    (25) exp1 -> . exp1 SOMA exp2
+    (26) exp1 -> . exp2
+    (27) exp2 -> . exp2 VEZES exp3
+    (28) exp2 -> . exp3
+    (29) exp3 -> . exp4 POT exp3
+    (30) exp3 -> . exp4
+    (31) exp4 -> . call
+    (32) exp4 -> . NUMBER
+    (33) exp4 -> . ID
+    (34) exp4 -> . TRUE
+    (35) exp4 -> . FALSE
+    (36) call -> . ID LPAREN params RPAREN
+    (37) call -> . ID LPAREN RPAREN
+
+    NUMBER          shift and go to state 29
+    ID              shift and go to state 30
+    TRUE            shift and go to state 31
+    FALSE           shift and go to state 32
+
+    exp                            shift and go to state 37
+    params                         shift and go to state 63
+    expless                        shift and go to state 23
+    exp1                           shift and go to state 24
+    exp2                           shift and go to state 25
+    exp3                           shift and go to state 26
+    exp4                           shift and go to state 27
+    call                           shift and go to state 28
+
+state 54
+
+    (21) exp -> exp IGUAL expless .
+    (23) expless -> expless . LESS exp1
+
+    PV              reduce using rule 21 (exp -> exp IGUAL expless .)
+    IGUAL           reduce using rule 21 (exp -> exp IGUAL expless .)
+    COMMA           reduce using rule 21 (exp -> exp IGUAL expless .)
+    RPAREN          reduce using rule 21 (exp -> exp IGUAL expless .)
+    LESS            shift and go to state 44
+
+
+state 55
+
+    (19) stm -> WHILE LPAREN exp . RPAREN body
+    (21) exp -> exp . IGUAL expless
+
+    RPAREN          shift and go to state 64
+    IGUAL           shift and go to state 41
+
+
+state 56
+
+    (20) stm -> RETURN exp PV .
+
+    WHILE           reduce using rule 20 (stm -> RETURN exp PV .)
+    RETURN          reduce using rule 20 (stm -> RETURN exp PV .)
+    NUMBER          reduce using rule 20 (stm -> RETURN exp PV .)
+    ID              reduce using rule 20 (stm -> RETURN exp PV .)
+    TRUE            reduce using rule 20 (stm -> RETURN exp PV .)
+    FALSE           reduce using rule 20 (stm -> RETURN exp PV .)
+    RCHAV           reduce using rule 20 (stm -> RETURN exp PV .)
+
+
+state 57
+
+    (23) expless -> expless LESS exp1 .
+    (25) exp1 -> exp1 . SOMA exp2
+
+    LESS            reduce using rule 23 (expless -> expless LESS exp1 .)
+    PV              reduce using rule 23 (expless -> expless LESS exp1 .)
+    IGUAL           reduce using rule 23 (expless -> expless LESS exp1 .)
+    COMMA           reduce using rule 23 (expless -> expless LESS exp1 .)
+    RPAREN          reduce using rule 23 (expless -> expless LESS exp1 .)
+    SOMA            shift and go to state 45
+
+
+state 58
+
+    (25) exp1 -> exp1 SOMA exp2 .
+    (27) exp2 -> exp2 . VEZES exp3
+
+    SOMA            reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    LESS            reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    PV              reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    IGUAL           reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    COMMA           reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    RPAREN          reduce using rule 25 (exp1 -> exp1 SOMA exp2 .)
+    VEZES           shift and go to state 46
+
+
+state 59
+
+    (27) exp2 -> exp2 VEZES exp3 .
+
+    VEZES           reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    SOMA            reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    LESS            reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    PV              reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    IGUAL           reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    COMMA           reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+    RPAREN          reduce using rule 27 (exp2 -> exp2 VEZES exp3 .)
+
+
+state 60
+
+    (29) exp3 -> exp4 POT exp3 .
+
+    VEZES           reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    SOMA            reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    LESS            reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    PV              reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    IGUAL           reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    COMMA           reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+    RPAREN          reduce using rule 29 (exp3 -> exp4 POT exp3 .)
+
+
+state 61
+
+    (12) sigparams -> ID ID .
+    (13) sigparams -> ID ID . COMMA sigparams
+
+    RPAREN          reduce using rule 12 (sigparams -> ID ID .)
+    COMMA           shift and go to state 65
+
+
+state 62
+
+    (10) signature -> ID ID LPAREN sigparams RPAREN .
+
+    LCHAV           reduce using rule 10 (signature -> ID ID LPAREN sigparams RPAREN .)
+
+
+state 63
+
+    (38) params -> exp COMMA params .
+
+    RPAREN          reduce using rule 38 (params -> exp COMMA params .)
+
+
+state 64
+
+    (19) stm -> WHILE LPAREN exp RPAREN . body
+    (14) body -> . LCHAV stms RCHAV
+    (15) body -> . LCHAV RCHAV
+
+    LCHAV           shift and go to state 12
+
+    body                           shift and go to state 66
+
+state 65
+
+    (13) sigparams -> ID ID COMMA . sigparams
+    (12) sigparams -> . ID ID
+    (13) sigparams -> . ID ID COMMA sigparams
+
+    ID              shift and go to state 48
+
+    sigparams                      shift and go to state 67
+
+state 66
+
+    (19) stm -> WHILE LPAREN exp RPAREN body .
+
+    WHILE           reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    RETURN          reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    NUMBER          reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    ID              reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    TRUE            reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    FALSE           reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+    RCHAV           reduce using rule 19 (stm -> WHILE LPAREN exp RPAREN body .)
+
+
+state 67
+
+    (13) sigparams -> ID ID COMMA sigparams .
+
+    RPAREN          reduce using rule 13 (sigparams -> ID ID COMMA sigparams .)
+
