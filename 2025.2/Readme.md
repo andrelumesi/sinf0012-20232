@@ -10,10 +10,9 @@ Links úteis:
 
 Grupos do Projeto e Linguagens:
 
-
-| N. | Nome Completo                                                                                          | Linguagem | Link para o Github do Grupo                         |
-|----|--------------------------------------------------------------------------------------------------------|-----------|-----------------------------------------------------|
-| 1  | Alvaro Santos Tavares Marcos Yago Andrade Gonzaga José Valter Santos de Jesus                          |    LUA    | https://github.com/MarcosYago17/Compilador-LUA      |
-| 2  | Hiakewve Santos Alves Miguel Menezes Andrade Vinicius Meneses Oliveira José Wellington Carvalho Santos |     V     | https://github.com/Hiakewve/ProjetoLFT-Compilador_V |
-| 3  | Ian Tavares Silva João Victor Meneses Souza João Victor Silva de Hungria                               |    ZIG    | https://github.com/XIanTavares/LFT-Project          |
-| 4  | Felipe Mendonça do Sacramento Jhonatas Nascimento Oliveira Guilherme Lima Santos                       |    SQL    | https://github.com/Guilherme-Yeager/CompilerSQL     |
+| N. | Nome Completo                                                                                                   | Linguagem | Link para o Github do Grupo                         |
+|----|-----------------------------------------------------------------------------------------------------------------|-----------|-----------------------------------------------------|
+| 1  | Alvaro Santos Tavares<br>Marcos Yago Andrade Gonzaga<br>José Valter Santos de Jesus                             |    LUA    | https://github.com/MarcosYago17/Compilador-LUA      |
+| 2  | Hiakewve Santos Alves<br>Miguel Menezes Andrade<br>Vinicius Meneses Oliveira<br>José Wellington Carvalho Santos |     V     | https://github.com/Hiakewve/ProjetoLFT-Compilador_V |
+| 3  | Ian Tavares Silva<br>João Victor Meneses Souza<br>João Victor Silva de Hungria                                  |    ZIG    | https://github.com/XIanTavares/LFT-Project          |
+| 4  | Felipe Mendonça do Sacramento<br>Jhonatas Nascimento Oliveira<br>Guilherme Lima Santos                          |    SQL    | https://github.com/Guilherme-Yeager/CompilerSQL     |
