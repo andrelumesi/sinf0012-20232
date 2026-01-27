@@ -13,7 +13,7 @@ Nesse documento, são apresentadas as atividades a serem desenvolvidas pelos dis
 
 - [x] Atividade 3. Elaboração da Documentação Sintática e Exemplos de Código.
 
-  - [Documentação Sintática] (https://github.com/andrelumesi/SINF0012-LFT/blob/main/linguagem-SUE/mds/sintatico.md)
+  - [Documentação Sintática](https://github.com/andrelumesi/SINF0012-LFT/blob/main/linguagem-SUE/mds/sintatico.md)
 
 - [x] Atividade 4. Elaboração da Gramática Livre de Contexto e implementação no PLY
 
