@@ -5,7 +5,7 @@ Nesse documento, são apresentadas as atividades a serem desenvolvidas pelos dis
 
 - [x] Atividade 1. Elaboração da Documentação Léxica.
 
-  - [Documentação Léxica](https://github.com/andreluisms/LinguagemSue/blob/main/mds/lexico.md)
+  - [Documentação Léxica](https://github.com/andrelumesi/SINF0012-LFT/blob/main/linguagem-SUE/mds/glc.md)
   
 - [x] Atividade 2. Elaboração do Léxico em PLY.
 	
@@ -13,11 +13,11 @@ Nesse documento, são apresentadas as atividades a serem desenvolvidas pelos dis
 
 - [x] Atividade 3. Elaboração da Documentação Sintática e Exemplos de Código.
 
-  - [Documentação Sintática](https://github.com/andreluisms/LinguagemSue/blob/main/mds/sintatico.md)
+  - [Documentação Sintática] (https://github.com/andrelumesi/SINF0012-LFT/blob/main/linguagem-SUE/mds/sintatico.md)
 
 - [x] Atividade 4. Elaboração da Gramática Livre de Contexto e implementação no PLY
 
-  - [GLC](https://github.com/andreluisms/TutorialSemantico02/blob/main/mds/glc.md)
+  - [GLC](https://github.com/andrelumesi/SINF0012-LFT/blob/main/linguagem-SUE/mds/glc.md)
 
   - [Implementação no PLY](https://github.com/andreluisms/TutorialSemantico02/blob/main/ExpressionLanguageParser.py)
 
