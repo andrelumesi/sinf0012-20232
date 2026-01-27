@@ -1,5 +1,8 @@
-# Links para os Projetos dos Discentes 
-## 2024.2 
+# 2024.2 - SINF0012 - Linguagens formais e Tradutores
+
+Oferta de 2024.2 do componente curricular SINF0012 Linguagens Formais e Tradutores, ministrada pelo Prof. Dr. André Luis Meneses Silva do Departamento de Sistemas de Informação da Universidade Federal de Sergipe (DSI/UFS).
+
+## Grupos do Projeto e Linguagens:
 
 #### [Grupo 01 - Kotlin:]()
   - Arthur Conceição de Assis
